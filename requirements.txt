@@ -1,0 +1,10 @@
+chromadb
+pypdf
+sentence-transformers
+python-dateutil
+anthropic
+fastapi
+uvicorn
+python-dotenv
+httpx
+pytest

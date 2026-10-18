@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claim Assistant</title>
+<style>
+  :root {
+    --bg: #eceef0; --panel: #ffffff; --line: #d5d8dc; --text: #2b2f33; --muted: #6b7280;
+    --user: #3f4851; --user-text: #f4f5f6; --bot: #f4f5f6; --accent: #4b5560; --chip: #e4e7ea;
+    --ok: #3f6b4f; --bad: #8a4b4b; --warn: #8a6d3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1b1d20; --panel: #25282c; --line: #383c41; --text: #e6e8ea; --muted: #9aa1a9;
+      --user: #5a6570; --user-text: #fff; --bot: #2e3237; --accent: #aab2ba; --chip: #33373c;
+      --ok: #7fb893; --bad: #d49a9a; --warn: #d4bb86; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); height: 100vh; display: flex; justify-content: center;
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .app { width: 100%; max-width: 820px; display: flex; flex-direction: column; background: var(--panel);
+    border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  header { padding: 14px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+  header h1 { font-size: 16px; margin: 0; font-weight: 600; }
+  header p { margin: 2px 0 0; font-size: 12px; color: var(--muted); }
+  button { font: inherit; cursor: pointer; }
+  .ghost { background: none; border: 1px solid var(--line); color: var(--accent); padding: 6px 12px; border-radius: 6px; font-size: 13px; }
+  .ghost:hover { background: var(--chip); }
+  #log { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+  .msg { max-width: 85%; }
+  .msg.user { align-self: flex-end; }
+  .bubble { padding: 10px 14px; border-radius: 10px; white-space: pre-wrap; word-wrap: break-word; }
+  .user .bubble { background: var(--user); color: var(--user-text); border-bottom-right-radius: 2px; }
+  .bot .bubble { background: var(--bot); border: 1px solid var(--line); border-bottom-left-radius: 2px; }
+  .bot .bubble.error { color: var(--bad); }
+  .findings { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 12px; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--line); background: var(--panel); }
+  .tag.covered, .tag.eligible, .tag.found, .tag.approve { color: var(--ok); border-color: currentColor; }
+  .tag.deny, .tag.not_in_plan_tier, .tag.within_waiting_period, .tag.before_activation, .tag.after_term { color: var(--bad); border-color: currentColor; }
+  .tag.needs_review, .tag.no_match, .tag.unknown, .tag.ambiguous, .tag.not_found, .tag.no_reports { color: var(--warn); border-color: currentColor; }
+  details.log { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  details.log summary { cursor: pointer; text-transform: uppercase; letter-spacing: .05em; font-size: 11px; }
+  details.log ol { margin: 6px 0 0; padding-left: 20px; }
+  details.log li { margin-bottom: 4px; color: var(--text); }
+  details.log time { color: var(--muted); margin-left: 6px; }
+  .cites { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .cites .label { text-transform: uppercase; letter-spacing: .05em; font-size: 11px; margin-bottom: 4px; }
+  .cite { display: inline-block; margin: 0 6px 6px 0; padding: 3px 9px; background: var(--chip); border-radius: 12px; color: var(--text); }
+  .hints { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hints button { background: var(--bot); border: 1px solid var(--line); color: var(--text); padding: 6px 12px; border-radius: 16px; font-size: 13px; }
+  .hints button:hover { background: var(--chip); }
+  .typing { color: var(--muted); font-style: italic; }
+  form { display: flex; gap: 10px; padding: 14px 20px; border-top: 1px solid var(--line); }
+  textarea { flex: 1; resize: none; font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 8px; padding: 10px 12px; max-height: 140px; }
+  textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .send { background: var(--accent); color: var(--panel); border: 0; padding: 0 20px; border-radius: 8px; font-weight: 600; }
+  .send:disabled { opacity: .5; cursor: default; }
+  @media (max-width: 600px) { .msg { max-width: 95%; } header, #log, form { padding-left: 12px; padding-right: 12px; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div><h1>Claim Assistant</h1><p>Premier Home Shield · Service Agreement PHS-2026-9812A</p></div>
+    <button class="ghost" id="reset" type="button">New conversation</button>
+  </header>
+  <div id="log" aria-live="polite"></div>
+  <form id="form">
+    <textarea id="input" rows="1" placeholder="Ask about coverage, the waiting period, or cost limits…" aria-label="Your question"></textarea>
+    <button class="send" id="send" type="submit">Send</button>
+  </form>
+</div>
+<script>
+const log = document.getElementById("log"), form = document.getElementById("form"),
+      input = document.getElementById("input"), send = document.getElementById("send");
+let sessionId = null;
+try { sessionId = sessionStorage.getItem("sid"); } catch (e) {}
+
+const HINTS = ["Is a dishwasher covered?", "What is the cap on HVAC repairs?",
+               "Is my claim outside the waiting window?", "What is the repair quote total?", "Should this claim be approved?"];
+const VERDICTS = { covered: "Covered", not_in_plan_tier: "Not in plan tier", no_match: "No match – human review",
+  found: "Quote found", not_found: "Report not found", ambiguous: "Which report?", no_reports: "No report loaded",
+  approve: "Recommend: approve", deny: "Recommend: deny", needs_review: "Recommend: human review",
+  eligible: "Outside waiting window", within_waiting_period: "Within waiting period",
+  before_activation: "Before activation", after_term: "After term ended", unknown: "Unknown" };
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+function add(role, html, extra) {
+  const m = document.createElement("div");
+  m.className = "msg " + role;
+  m.innerHTML = `<div class="bubble ${extra || ""}">${html}</div>`;
+  log.appendChild(m); log.scrollTop = log.scrollHeight;
+  return m;
+}
+
+function annotate(msg, calls, audit) {
+  const tags = [], seen = new Map();
+  for (const c of calls) {
+    const r = c.result || {};
+    if (r.recommendation) tags.push([r.recommendation, VERDICTS[r.recommendation]]);
+    if (r.verdict) tags.push([r.verdict, VERDICTS[r.verdict] || r.verdict]);
+    for (const ci of r.citations || []) seen.set(ci.chunk, ci);
+    if (r.caps) for (const k of r.caps) if (k.citation) seen.set(k.citation.chunk, k.citation);
+  }
+  if (tags.length) {
+    const d = document.createElement("div"); d.className = "findings";
+    d.innerHTML = tags.map(([k, t]) => `<span class="tag ${k}">${esc(t)}</span>`).join("");
+    msg.appendChild(d);
+  }
+  if (audit && audit.length) {
+    const d = document.createElement("details"); d.className = "log";
+    d.innerHTML = `<summary>What I checked (${audit.length} steps)</summary><ol>` + audit.map(s =>
+      `<li>${esc(s.summary)}<time>${esc((s.timestamp || "").slice(11, 19))}${s.duration_ms ? " · " + s.duration_ms + " ms" : ""}</time></li>`).join("") + "</ol>";
+    msg.appendChild(d);
+  }
+  if (seen.size) {
+    const d = document.createElement("div"); d.className = "cites";
+    d.innerHTML = `<div class="label">Contract citations</div>` + [...seen.values()].map(c =>
+      `<span class="cite" title="chunk ${esc(c.chunk)}">${c.document ? esc(c.document) + " · " : ""}${esc(c.section)} · p.${c.page}</span>`).join("");
+    msg.appendChild(d);
+  }
+}
+
+async function ask(text) {
+  add("user", esc(text));
+  const wait = add("bot", "Checking the contract…", "typing");
+  send.disabled = true;
+  try {
+    const res = await fetch("/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text, session_id: sessionId }) });
+    const data = await res.json();
+    wait.remove();
+    if (!res.ok) { add("bot", esc(data.detail || "Something went wrong."), "error"); return; }
+    sessionId = data.session_id;
+    try { sessionStorage.setItem("sid", sessionId); } catch (e) {}
+    const m = add("bot", md(data.reply));
+    annotate(m, data.tool_calls, data.audit_log);
+  } catch (e) {
+    wait.remove(); add("bot", "Could not reach the server.", "error");
+  } finally { send.disabled = false; input.focus(); log.scrollTop = log.scrollHeight; }
+}
+
+function welcome() {
+  log.innerHTML = "";
+  const m = add("bot", "Hello. I can check whether a broken part is covered, whether a breakdown falls outside the waiting window, and what fees or caps apply. Answers come from the contract and cite it.");
+  const h = document.createElement("div"); h.className = "hints"; h.style.marginTop = "10px";
+  HINTS.forEach(t => { const b = document.createElement("button"); b.type = "button"; b.textContent = t;
+    b.onclick = () => ask(t); h.appendChild(b); });
+  m.appendChild(h);
+}
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const t = input.value.trim(); if (!t || send.disabled) return;
+  input.value = ""; input.style.height = "auto"; ask(t);
+});
+input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); } });
+input.addEventListener("input", () => { input.style.height = "auto"; input.style.height = input.scrollHeight + "px"; });
+document.getElementById("reset").onclick = async () => {
+  if (sessionId) { try { await fetch("/sessions/" + sessionId, { method: "DELETE" }); } catch (e) {} }
+  sessionId = null; try { sessionStorage.removeItem("sid"); } catch (e) {}
+  welcome();
+};
+welcome();
+</script>
+</body>
+</html>
