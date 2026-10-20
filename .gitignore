@@ -3,3 +3,6 @@ chroma_db/
 .env
 __pycache__/
 logs/
+evals/results/
+mlruns/
+mlflow.db

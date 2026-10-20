@@ -1,0 +1,31 @@
+{"id": "B1-01", "query": "Is a central air conditioning system covered?", "collection": "contract", "expect_ids": ["sec2-1"], "tags": ["contract"]}
+{"id": "B1-02", "query": "What does the heating and cooling coverage include?", "collection": "contract", "expect_ids": ["sec2-1"], "tags": ["contract"]}
+{"id": "B1-03", "query": "Is there a maximum payout for HVAC repairs?", "collection": "contract", "expect_ids": ["sec2-1"], "tags": ["contract"]}
+{"id": "B1-04", "query": "Are leaking pipes covered?", "collection": "contract", "expect_ids": ["sec2-2"], "tags": ["contract"]}
+{"id": "B1-05", "query": "Does the plan cover toilet repairs?", "collection": "contract", "expect_ids": ["sec2-2"], "tags": ["contract"]}
+{"id": "B1-06", "query": "What electrical components does the contract cover?", "collection": "contract", "expect_ids": ["sec2-3"], "tags": ["contract"]}
+{"id": "B1-07", "query": "Are circuit breakers covered?", "collection": "contract", "expect_ids": ["sec2-3"], "tags": ["contract"]}
+{"id": "B1-08", "query": "Which kitchen appliances are covered?", "collection": "contract", "expect_ids": ["sec2-4"], "tags": ["contract"]}
+{"id": "B1-09", "query": "Does the contract cover a refrigerator?", "collection": "contract", "expect_ids": ["sec2-4"], "tags": ["contract"]}
+{"id": "B1-10", "query": "How long does the coverage last?", "collection": "contract", "expect_ids": ["sec1-declarations"], "tags": ["contract"]}
+{"id": "B1-11", "query": "What is the agreement number?", "collection": "contract", "expect_ids": ["sec1-declarations"], "tags": ["contract"]}
+{"id": "B1-12", "query": "What type of plan does the customer have?", "collection": "contract", "expect_ids": ["sec1-declarations"], "tags": ["contract"]}
+{"id": "B1-13", "query": "How much is the service fee per trade call?", "collection": "contract", "expect_ids": ["sec1-declarations", "sec4-1"], "tags": ["contract"]}
+{"id": "B1-14", "query": "What is the waiting period for pre-existing conditions?", "collection": "contract", "expect_ids": ["sec3-1"], "tags": ["contract"]}
+{"id": "B1-15", "query": "Are damages from lightning or floods excluded?", "collection": "contract", "expect_ids": ["sec3-2"], "tags": ["contract"]}
+{"id": "B1-16", "query": "What happens if the owner failed to maintain the equipment?", "collection": "contract", "expect_ids": ["sec3-3"], "tags": ["contract"]}
+{"id": "B1-17", "query": "Are pest or mold problems covered?", "collection": "contract", "expect_ids": ["sec3-2"], "tags": ["contract"]}
+{"id": "B1-18", "query": "How do I file a claim?", "collection": "contract", "expect_ids": ["sec4-0"], "tags": ["contract"]}
+{"id": "B1-19", "query": "When must the service call fee be paid?", "collection": "contract", "expect_ids": ["sec4-1"], "tags": ["contract"]}
+{"id": "B1-20", "query": "Who decides whether repairs are authorized?", "collection": "contract", "expect_ids": ["sec4-2"], "tags": ["contract"]}
+{"id": "B1-21", "query": "Can I call my own contractor before approval?", "collection": "contract", "expect_ids": ["sec4-0"], "tags": ["contract"]}
+{"id": "B1-22", "query": "Which company issued this agreement?", "collection": "contract", "expect_ids": ["sec1-intro"], "tags": ["contract"]}
+{"id": "B1-23", "query": "What is the grand total of the repair quote?", "collection": "report", "expect_ids": ["hw-88301-a-grand-total"], "tags": ["report"]}
+{"id": "B1-24", "query": "Who performed the inspection?", "collection": "report", "expect_ids": ["hw-88301-a-header"], "tags": ["report"]}
+{"id": "B1-25", "query": "What is the make and model of the unit?", "collection": "report", "expect_ids": ["hw-88301-a-equipment"], "tags": ["report"]}
+{"id": "B1-26", "query": "What caused the compressor to fail?", "collection": "report", "expect_ids": ["hw-88301-a-finding-3"], "tags": ["report"]}
+{"id": "B1-27", "query": "How much was the labor charge?", "collection": "report", "expect_ids": ["hw-88301-a-item-3"], "tags": ["report"]}
+{"id": "B1-28", "query": "How much does the replacement compressor cost?", "collection": "report", "expect_ids": ["hw-88301-a-item-0"], "tags": ["report"]}
+{"id": "B1-29", "query": "What does the technician recommend?", "collection": "report", "expect_ids": ["hw-88301-a-sec4-0"], "tags": ["report"]}
+{"id": "B1-30", "query": "Were the refrigerant pressures normal?", "collection": "report", "expect_ids": ["hw-88301-a-finding-2"], "tags": ["report"]}
+{"id": "B1-31", "query": "How old is the unit?", "collection": "report", "expect_ids": ["hw-88301-a-equipment"], "tags": ["report"]}

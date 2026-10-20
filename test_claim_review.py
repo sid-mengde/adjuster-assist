@@ -71,10 +71,25 @@ def test_guardrail_overrides_model_approve_inside_waiting_period():
     assert any("Guardrail" in x for x in r["risks"]) and "guardrail_override" in names(r)
 
 
-def test_model_deny_is_honored_when_rules_approve():
+def test_model_deny_without_failed_hard_check_goes_to_human_review():
     rec = {"recommendation": "deny", "reasoning": "x", "exclusion_assessment": "y", "risks": []}
     r = review(FakeClaude(rec))
-    assert r["recommendation"] == "deny" and r["approved_amount"] == 0.0 and "guardrail_override" not in names(r)
+    assert r["recommendation"] == "needs_review" and r["approved_amount"] is None
+    assert "exclusion_policy_override" in names(r) and any("Policy" in x for x in r["risks"])
+
+
+@pytest.mark.parametrize("model_says", ["approve", "deny", "needs_review"])
+def test_triggered_exclusion_always_routes_to_human_review(model_says):
+    rec = {"recommendation": model_says, "reasoning": "x", "exclusion_assessment": "neglect",
+           "exclusion_triggered": True, "risks": []}
+    r = review(FakeClaude(rec))
+    assert r["recommendation"] == "needs_review" and r["approved_amount"] is None and r["exclusion_triggered"] is True
+
+
+def test_triggered_exclusion_does_not_soften_a_hard_deny():
+    rec = {"recommendation": "deny", "reasoning": "x", "exclusion_assessment": "y", "exclusion_triggered": True, "risks": []}
+    r = review(FakeClaude(rec), breakdown=EARLY_BREAKDOWN)  # inside the waiting period: a hard-check failure
+    assert r["recommendation"] == "deny" and r["approved_amount"] == 0.0
 
 
 def test_model_failure_defaults_to_human_review():

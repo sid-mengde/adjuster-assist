@@ -1,0 +1,43 @@
+{"id": "C1-001", "component": "HVAC compressor", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-002", "component": "central air conditioner", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-003", "component": "heat pump", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-004", "component": "thermostat", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-005", "component": "air conditioning condenser unit", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-006", "component": "ducted heating system", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-007", "component": "AC compressor", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-008", "component": "A/C unit", "group": "hvac", "item": "Heating & Air Conditioning Systems", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-009", "component": "leaking drain line", "group": "plumbing", "item": "Plumbing System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-010", "component": "toilet flush mechanism", "group": "plumbing", "item": "Plumbing System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-011", "component": "broken water supply line", "group": "plumbing", "item": "Plumbing System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-012", "component": "clogged waste line", "group": "plumbing", "item": "Plumbing System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-013", "component": "interior pipe leak", "group": "plumbing", "item": "Plumbing System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-014", "component": "kitchen sink drain", "group": "plumbing", "item": "Plumbing System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-015", "component": "main electrical panel", "group": "electrical", "item": "Electrical System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-016", "component": "circuit breaker", "group": "electrical", "item": "Electrical System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-017", "component": "light switch", "group": "electrical", "item": "Electrical System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-018", "component": "house wiring", "group": "electrical", "item": "Electrical System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-019", "component": "sub-panel", "group": "electrical", "item": "Electrical System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-020", "component": "breaker box", "group": "electrical", "item": "Electrical System", "verdicts": {"Combo": "covered", "Systems Only": "covered", "Appliances Only": "not_in_plan_tier"}}
+{"id": "C1-021", "component": "refrigerator", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-022", "component": "oven", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-023", "component": "cooktop", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-024", "component": "dishwasher", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-025", "component": "built-in microwave", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-026", "component": "fridge", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-027", "component": "dish washer", "group": "appliance", "item": "Major Home Appliances", "verdicts": {"Combo": "covered", "Systems Only": "not_in_plan_tier", "Appliances Only": "covered"}}
+{"id": "C1-028", "component": "pool pump", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-029", "component": "roof shingles", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-030", "component": "garage door opener", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-031", "component": "swimming pool heater", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-032", "component": "lawn sprinkler system", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-033", "component": "driveway", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-034", "component": "wooden fence", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-035", "component": "hot tub", "group": "out_of_scope", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-036", "component": "washing machine", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-037", "component": "clothes dryer", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-038", "component": "chest freezer", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-039", "component": "water heater", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-040", "component": "sump pump", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-041", "component": "garbage disposal", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-042", "component": "ceiling fan", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}
+{"id": "C1-043", "component": "window", "group": "ambiguous", "item": null, "verdicts": {"Combo": "no_match", "Systems Only": "no_match", "Appliances Only": "no_match"}}

@@ -1,0 +1,13 @@
+{"id": "C6-01", "contract": "base", "component": null, "expected": {"fee": 85.0, "listing": [{"item": "Heating & Air Conditioning Systems", "amount": 2000.0}]}}
+{"id": "C6-02", "contract": "base", "component": "HVAC compressor", "expected": {"fee": 85.0, "cap": 2000.0}}
+{"id": "C6-03", "contract": "base", "component": "central air conditioner", "expected": {"fee": 85.0, "cap": 2000.0}}
+{"id": "C6-04", "contract": "base", "component": "heat pump", "expected": {"fee": 85.0, "cap": 2000.0}}
+{"id": "C6-05", "contract": "base", "component": "dishwasher", "expected": {"fee": 85.0, "cap": null}}
+{"id": "C6-06", "contract": "base", "component": "leaking drain line", "expected": {"fee": 85.0, "cap": null}}
+{"id": "C6-07", "contract": "base", "component": "main electrical panel", "expected": {"fee": 85.0, "cap": null}}
+{"id": "C6-08", "contract": "base", "component": "pool pump", "expected": {"fee": 85.0, "cap": null, "no_match": true}}
+{"id": "C6-09", "contract": "no_cap", "component": "HVAC compressor", "expected": {"fee": 85.0, "cap": null}}
+{"id": "C6-10", "contract": "cap_3500", "component": "HVAC compressor", "expected": {"fee": 85.0, "cap": 3500.0}}
+{"id": "C6-11", "contract": "multi_cap", "component": null, "expected": {"fee": 85.0, "listing": [{"item": "Heating & Air Conditioning Systems", "amount": 2000.0}, {"item": "Plumbing System", "amount": 500.0}]}}
+{"id": "C6-12", "contract": "multi_cap", "component": "leaking drain line", "expected": {"fee": 85.0, "cap": 500.0}}
+{"id": "C6-13", "contract": "fee_100", "component": "HVAC compressor", "expected": {"fee": 100.0, "cap": 2000.0}}

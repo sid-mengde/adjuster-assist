@@ -1,0 +1,16 @@
+{"id": "C7-01", "reports": ["base"], "claim_ref": null, "expected": {"verdict": "found", "total": 1800.0, "consistent": true}}
+{"id": "C7-02", "reports": ["base"], "claim_ref": "HW-88301-A", "expected": {"verdict": "found", "total": 1800.0, "consistent": true}}
+{"id": "C7-03", "reports": ["base"], "claim_ref": "#HW-88301-A", "expected": {"verdict": "found", "total": 1800.0, "consistent": true}}
+{"id": "C7-04", "reports": ["base"], "claim_ref": "hw-88301-a", "expected": {"verdict": "found", "total": 1800.0, "consistent": true}}
+{"id": "C7-05", "reports": ["base"], "claim_ref": "  HW-88301-A ", "expected": {"verdict": "found", "total": 1800.0, "consistent": true}}
+{"id": "C7-06", "reports": ["base"], "claim_ref": "HW-00000-X", "expected": {"verdict": "not_found"}}
+{"id": "C7-07", "reports": [], "claim_ref": null, "expected": {"verdict": "no_reports"}}
+{"id": "C7-08", "reports": ["base", "m_b", "m_c"], "claim_ref": null, "expected": {"verdict": "ambiguous"}}
+{"id": "C7-09", "reports": ["base", "m_b", "m_c"], "claim_ref": "HW-77777-B", "expected": {"verdict": "found", "total": 950.0, "consistent": true}}
+{"id": "C7-10", "reports": ["base", "m_b", "m_c"], "claim_ref": "HW-55555-C", "expected": {"verdict": "found", "total": 2400.0, "consistent": true}}
+{"id": "C7-11", "reports": ["d_total_mismatch"], "claim_ref": null, "expected": {"verdict": "found", "total": 1900.0, "consistent": false}}
+{"id": "C7-12", "reports": ["q_discount"], "claim_ref": null, "expected": {"verdict": "found", "total": 1700.0, "consistent": false}}
+{"id": "C7-13", "reports": ["q_2000_01"], "claim_ref": null, "expected": {"verdict": "found", "total": 2000.01, "consistent": true}}
+{"id": "C7-14", "reports": ["q_one_item"], "claim_ref": null, "expected": {"verdict": "found", "total": 1800.0, "consistent": true}}
+{"id": "C7-15", "reports": ["d_no_grand_total"], "claim_ref": null, "expected": {"verdict": "no_reports"}}
+{"id": "C7-16", "reports": ["l_cost_breakdown"], "claim_ref": null, "expected": {"verdict": "no_reports"}}

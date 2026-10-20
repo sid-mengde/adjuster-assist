@@ -1,0 +1,26 @@
+{"id": "C3-01", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-01-10", "expected": "before_activation", "note": "breakdown predates activation"}
+{"id": "C3-02", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-01-15", "expected": "within_waiting_period", "note": "day 0"}
+{"id": "C3-03", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-01-25", "expected": "within_waiting_period", "note": "day 10"}
+{"id": "C3-04", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-02-13", "expected": "within_waiting_period", "note": "day 29: last day of the 30-day window"}
+{"id": "C3-05", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-02-14", "expected": "eligible", "note": "day 30: first day after the 30-day window"}
+{"id": "C3-06", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-02-15", "expected": "eligible", "note": "day 31"}
+{"id": "C3-07", "contract": "base", "activation": "2026-01-15", "breakdown": "2026-03-01", "expected": "eligible", "note": "day 45"}
+{"id": "C3-08", "contract": "base", "activation": "2026-01-15", "breakdown": "2027-01-14", "expected": "eligible", "note": "day 364: last day of the 12-month term"}
+{"id": "C3-09", "contract": "base", "activation": "2026-01-15", "breakdown": "2027-01-15", "expected": "after_term", "note": "the 12-month anniversary ends the term"}
+{"id": "C3-10", "contract": "base", "activation": "2026-01-15", "breakdown": "2027-06-01", "expected": "after_term", "note": "well past the term"}
+{"id": "C3-11", "contract": "base", "activation": "2026-06-01", "breakdown": "2026-06-01", "expected": "within_waiting_period", "note": "same-day failure"}
+{"id": "C3-12", "contract": "base", "activation": "2025-12-20", "breakdown": "2026-01-20", "expected": "eligible", "note": "window crosses a year boundary (day 31)"}
+{"id": "C3-13", "contract": "base", "activation": "2025-12-20", "breakdown": "2026-01-18", "expected": "within_waiting_period", "note": "year boundary, day 29"}
+{"id": "C3-14", "contract": "base", "activation": "2024-02-29", "breakdown": "2024-04-01", "expected": "eligible", "note": "activated on a leap day, day 32"}
+{"id": "C3-15", "contract": "base", "activation": "2024-02-29", "breakdown": "2025-02-27", "expected": "eligible", "note": "leap-day activation, last day of term"}
+{"id": "C3-16", "contract": "base", "activation": "2024-02-29", "breakdown": "2025-02-28", "expected": "after_term", "note": "leap-day activation, term ends on the clamped anniversary"}
+{"id": "C3-17", "contract": "wait_0", "activation": "2026-01-15", "breakdown": "2026-01-15", "expected": "eligible", "note": "no waiting period, same day"}
+{"id": "C3-18", "contract": "wait_15", "activation": "2026-01-15", "breakdown": "2026-01-29", "expected": "within_waiting_period", "note": "day 14 of a 15-day window"}
+{"id": "C3-19", "contract": "wait_15", "activation": "2026-01-15", "breakdown": "2026-01-30", "expected": "eligible", "note": "day 15 of a 15-day window"}
+{"id": "C3-20", "contract": "wait_60", "activation": "2026-01-15", "breakdown": "2026-03-15", "expected": "within_waiting_period", "note": "day 59 of a 60-day window"}
+{"id": "C3-21", "contract": "wait_60", "activation": "2026-01-15", "breakdown": "2026-03-16", "expected": "eligible", "note": "day 60 of a 60-day window"}
+{"id": "C3-22", "contract": "term_6", "activation": "2026-01-15", "breakdown": "2026-07-14", "expected": "eligible", "note": "last day of a 6-month term"}
+{"id": "C3-23", "contract": "term_6", "activation": "2026-01-15", "breakdown": "2026-07-15", "expected": "after_term", "note": "6-month anniversary"}
+{"id": "C3-24", "contract": "term_24", "activation": "2026-01-15", "breakdown": "2027-06-01", "expected": "eligible", "note": "inside a 24-month term"}
+{"id": "C3-25", "contract": "term_24", "activation": "2026-01-15", "breakdown": "2028-01-15", "expected": "after_term", "note": "24-month anniversary"}
+{"id": "C3-26", "contract": "no_wait_clause", "activation": "2026-01-15", "breakdown": "2026-03-01", "expected": "unknown", "note": "contract states no waiting period: cannot verify"}

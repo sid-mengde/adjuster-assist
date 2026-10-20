@@ -1,0 +1,6 @@
+{
+ "status": "draft",
+ "approved_by": null,
+ "approved_on": null,
+ "note": "Claim labels in claims.jsonl are drafts until the claim approver signs off. Set status to 'approved' and fill approved_by/approved_on after review."
+}

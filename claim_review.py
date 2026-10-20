@@ -25,8 +25,10 @@ RECOMMEND_TOOL = {
         "reasoning": {"type": "string", "description": "2-5 sentences citing the supplied facts"},
         "exclusion_assessment": {"type": "string",
                                  "description": "Whether the technician's findings trigger any contract exclusion"},
+        "exclusion_triggered": {"type": "boolean", "description":
+                                "True if any contract exclusion applies or may apply based on the technician's findings"},
         "risks": {"type": "array", "items": {"type": "string"}, "description": "Open concerns; empty if none"},
-    }, "required": ["recommendation", "reasoning", "exclusion_assessment", "risks"]},
+    }, "required": ["recommendation", "reasoning", "exclusion_assessment", "exclusion_triggered", "risks"]},
 }
 
 SYSTEM = """You advise a home-warranty claims adjuster. Decide whether to approve the claim using ONLY the \
@@ -34,7 +36,9 @@ facts provided: contract coverage tier, waiting period, cap, the technician's fi
 the contract's exclusions. Do not invent facts or amounts. Judge the technician's cause of failure against \
 each contract exclusion. Choose needs_review when facts are missing, contradictory, or a judgment call is \
 needed that the facts do not settle. The `rule_based_outcome` is a deterministic pre-check; if it is not \
-'approve', you must not recommend approve. Respond by calling submit_recommendation."""
+'approve', you must not recommend approve. If an exclusion applies or may apply, set exclusion_triggered=true \
+and recommend needs_review: whether an exclusion applies is a human adjuster's decision, so do not deny on \
+that basis alone. Respond by calling submit_recommendation."""
 
 
 class AuditLog:
@@ -161,9 +165,19 @@ def recommend_claim_approval(claim_ref, activation_date, breakdown_date, client,
         final = "deny" if rule == "deny" else "needs_review"
         risks.append(f"Guardrail: model recommended approve but the rule-based pre-check is '{rule}'.")
         log.note("guardrail_override", f"Model's approve overridden to {final}: " + "; ".join(rule_reasons))
+    elif rec.get("exclusion_triggered") and rule == "approve" and final != "needs_review":  # policy: exclusions go to a human
+        risks.append(f"Policy: a contract exclusion may apply, so the model's '{final}' was routed to human review.")
+        final = "needs_review"
+        log.note("exclusion_policy_override", "Exclusion may apply; routed to needs_review: "
+                 + str(rec.get("exclusion_assessment", "")))
+    elif final == "deny" and rule != "deny":  # a denial must rest on a failed hard check, not on model judgment alone
+        risks.append("Policy: the model recommended deny but no hard check failed, so the claim was routed to human review.")
+        final = "needs_review"
+        log.note("exclusion_policy_override", "Model deny without a failed hard check; routed to needs_review")
     amount = derived["maximum_payable"] if final == "approve" else (0.0 if final == "deny" else None)
     return _finish(log, claim_ref, write_log, final, amount, reasoning, risks, facts,
-                   exclusion_assessment=rec.get("exclusion_assessment"))
+                   exclusion_assessment=rec.get("exclusion_assessment"),
+                   exclusion_triggered=bool(rec.get("exclusion_triggered", False)))
 
 
 def _finish(log, claim_ref, write_log, recommendation, amount, reasoning, risks, facts, **extra):

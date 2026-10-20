@@ -1,0 +1,168 @@
+{
+ "contract": [
+  {
+   "id": "sec1-intro",
+   "kind": "intro",
+   "page": 1,
+   "section_number": 1
+  },
+  {
+   "id": "sec1-declarations",
+   "kind": "declarations",
+   "page": 1,
+   "section_number": 1
+  },
+  {
+   "id": "sec2-0",
+   "kind": "intro",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "sec2-1",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "sec2-2",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "sec2-3",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "sec2-4",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "sec3-0",
+   "kind": "intro",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "sec3-1",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "sec3-2",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "sec3-3",
+   "kind": "bullet",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "sec4-0",
+   "kind": "step",
+   "page": 1,
+   "section_number": 4
+  },
+  {
+   "id": "sec4-1",
+   "kind": "step",
+   "page": 1,
+   "section_number": 4
+  },
+  {
+   "id": "sec4-2",
+   "kind": "step",
+   "page": 2,
+   "section_number": 4
+  }
+ ],
+ "report": [
+  {
+   "id": "hw-88301-a-header",
+   "kind": "header",
+   "page": 1,
+   "section_number": 0
+  },
+  {
+   "id": "hw-88301-a-equipment",
+   "kind": "equipment",
+   "page": 1,
+   "section_number": 1
+  },
+  {
+   "id": "hw-88301-a-findings-intro",
+   "kind": "intro",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "hw-88301-a-finding-0",
+   "kind": "finding",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "hw-88301-a-finding-1",
+   "kind": "finding",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "hw-88301-a-finding-2",
+   "kind": "finding",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "hw-88301-a-finding-3",
+   "kind": "cause_of_failure",
+   "page": 1,
+   "section_number": 2
+  },
+  {
+   "id": "hw-88301-a-item-0",
+   "kind": "line_item",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "hw-88301-a-item-1",
+   "kind": "line_item",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "hw-88301-a-item-2",
+   "kind": "line_item",
+   "page": 1,
+   "section_number": 3
+  },
+  {
+   "id": "hw-88301-a-item-3",
+   "kind": "line_item",
+   "page": 2,
+   "section_number": 3
+  },
+  {
+   "id": "hw-88301-a-grand-total",
+   "kind": "grand_total",
+   "page": 2,
+   "section_number": 3
+  },
+  {
+   "id": "hw-88301-a-sec4-0",
+   "kind": "notes",
+   "page": 2,
+   "section_number": 4
+  }
+ ]
+}

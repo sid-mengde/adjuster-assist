@@ -69,7 +69,11 @@ def _pieces(num, body):
 
 def chunk_document(path):
     text, offsets = load_text(path)
-    source = path.split("/")[-1]
+    return chunk_text(text, offsets, path.split("/")[-1])
+
+
+def chunk_text(text, offsets, source):
+    """Chunk already-extracted contract text. offsets: [(char_offset, page)] as from load_text."""
 
     def page_at(pos):
         return max(pg for off, pg in offsets if off <= pos)

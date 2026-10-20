@@ -1,0 +1,6 @@
+{"id": "C8-01", "report": "base", "system_type": "Condenser", "manufacturer": "Carrier", "cause_contains": "wear and tear"}
+{"id": "C8-02", "report": "c_neglect", "system_type": "Condenser", "manufacturer": "Carrier", "cause_contains": "neglect"}
+{"id": "C8-03", "report": "e_dishwasher", "system_type": "Dishwasher", "manufacturer": "Carrier", "cause_contains": "wear and tear"}
+{"id": "C8-04", "report": "m_b", "system_type": "Condenser", "manufacturer": "Trane", "cause_contains": "wear and tear"}
+{"id": "C8-05", "report": "d_no_cause", "system_type": "Condenser", "manufacturer": "Carrier", "cause_contains": null}
+{"id": "C8-06", "report": "c_storm", "system_type": "Condenser", "manufacturer": "Carrier", "cause_contains": "lightning"}
